@@ -20,7 +20,12 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--color-bg);
+
+  background:
+    radial-gradient(circle at top left, #fffdf8 0%, transparent 40%),
+    radial-gradient(circle at bottom right, #f0e8d9 0%, transparent 35%),
+    var(--color-bg);
+
   color: var(--color-primary);
 
   font-family: var(--font-body);
@@ -30,7 +35,6 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
 /* ==========================
    Media
 ========================== */

@@ -1,29 +1,47 @@
-.primary-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.primary-btn{
 
-  margin-top: 2.5rem;
-  padding: 16px 34px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-  border: none;
-  border-radius: 999px;
+    margin-top:32px;
 
-  background: var(--color-primary);
-  color: white;
+    padding:16px 36px;
 
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .3s ease;
+    border:none;
+    border-radius:999px;
+
+    background:linear-gradient(
+        135deg,
+        #2F3E52,
+        #465A73
+    );
+
+    color:white;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 25px rgba(47,62,82,.25);
+
+    transition:all .3s ease;
 }
 
-.primary-btn:hover {
-  transform: translateY(-3px);
-  background: #2b3749;
-  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+.primary-btn:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.02);
+
+    box-shadow:
+        0 20px 40px rgba(47,62,82,.35);
 }
 
-.primary-btn:active {
-  transform: scale(.97);
+.primary-btn:active{
+
+    transform:scale(.97);
+
 }

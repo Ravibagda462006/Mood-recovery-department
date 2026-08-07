@@ -1,34 +1,45 @@
 /* ==========================
-   App Container
+   App Layout
 ========================== */
 
-#app {
-  min-height: 100vh;
+#app{
+    min-height:100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-  padding: var(--space-6);
+    padding:40px;
 }
 
 /* ==========================
-   Landing Layout
+   Landing Card
 ========================== */
 
-.landing {
-  max-width: 720px;
-  text-align: center;
+.landing{
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+
+
+    width:min(700px,100%);
+
+    background:var(--color-surface);
+
+    border:1px solid var(--color-border);
+
+    border-radius:28px;
+
+    padding:64px 48px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-lg);
+
 }
+.landing:hover{
+    transform:translateY(-6px);
 
-/* ==========================
-   Spacing
-========================== */
-
-.title {
-  margin-bottom: var(--space-4);
-}
-
-.subtitle {
-  margin-bottom: var(--space-6);
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.18);
 }

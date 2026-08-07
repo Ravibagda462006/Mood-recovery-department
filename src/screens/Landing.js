@@ -9,9 +9,10 @@ export function Landing() {
       <p class="subtitle">
         Government Approved Emotional Repair Division
       </p>
-<p class="subtitle">
-  Aapke emotions ki file ab hamare department me submit ho chuki hai.
-</p>
+
+       <p class="subtitle">
+        Aapke emotions ki file ab hamare department me submit ho chuki hai.
+      </p>
       <button class="primary-btn">
         Start Case 👉
       </button>
