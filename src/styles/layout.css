@@ -1,0 +1,34 @@
+/* ==========================
+   App Container
+========================== */
+
+#app {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--space-6);
+}
+
+/* ==========================
+   Landing Layout
+========================== */
+
+.landing {
+  max-width: 720px;
+  text-align: center;
+}
+
+/* ==========================
+   Spacing
+========================== */
+
+.title {
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  margin-bottom: var(--space-6);
+}

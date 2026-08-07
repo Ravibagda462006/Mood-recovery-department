@@ -1,0 +1,29 @@
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 2.5rem;
+  padding: 16px 34px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: var(--color-primary);
+  color: white;
+
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  background: #2b3749;
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+}
+
+.primary-btn:active {
+  transform: scale(.97);
+}
