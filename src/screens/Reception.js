@@ -1,6 +1,7 @@
 export function Reception() {
   return `
-    <main class="reception-screen">
+
+    <main class="reception">
 
       <div class="department-seal">
         <span class="seal-icon">✦</span>

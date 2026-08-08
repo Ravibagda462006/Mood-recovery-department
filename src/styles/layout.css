@@ -35,11 +35,28 @@
     text-align:center;
 
     box-shadow:var(--shadow-lg);
-
+    animation:landingEnter .7s ease-out both;
 }
 .landing:hover{
     transform:translateY(-6px);
 
     box-shadow:
         0 30px 60px rgba(0,0,0,.18);
+}
+/* ==========================
+   Recovery Options
+========================== */
+
+.recovery-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  width: min(420px, 100%);
+
+  margin: 28px auto 0;
+}
+
+.recovery-confirmation {
+  margin-top: 28px;
 }

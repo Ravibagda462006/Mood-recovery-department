@@ -5,9 +5,15 @@ import { Reception } from "./screens/Reception.js";
 import { Diagnosis } from "./screens/Diagnosis.js";
 import { DiagnosisResult } from "./screens/DiagnosisResult.js";
 import { Recovery } from "./screens/Recovery.js";
+import { RecoveryResult } from "./screens/RecoveryResult.js";
+import { CaseClosed } from "./screens/CaseClosed.js";
 
 import { typeText } from "./utils/typing.js";
-import { setMood, getMood, setRecoveryChoice } from "./utils/state.js";
+import { setMood, 
+         getMood, 
+         setRecoveryChoice, 
+         getRecoveryChoice,
+        resetState } from "./utils/state.js";
 
 const app = document.querySelector("#app");
 
@@ -101,6 +107,8 @@ function showDiagnosis() {
 // ==========================
 // Recovery
 // ==========================
+
+
 function showRecovery() {
   app.innerHTML = Recovery();
 
@@ -113,68 +121,93 @@ function showRecovery() {
   recoveryButton.addEventListener("click", () => {
 
     recoveryQuestion.innerHTML = `
-  <p class="subtitle">
-    Ab ek important sawaal:
-    aaj tumhe sabse zyada kis cheez ki zarurat hai?
-  </p>
+      <p class="subtitle">
+        Ab ek important sawaal:
+        aaj tumhe sabse zyada kis cheez ki zarurat hai?
+      </p>
 
-  <div class="recovery-options">
+      <div class="recovery-options">
 
-    <button class="mood-option" data-recovery="peace">
-      😌 Thoda sukoon
-    </button>
+        <button class="mood-option" data-recovery="peace">
+          😌 Thoda sukoon
+        </button>
 
-    <button class="mood-option" data-recovery="motivation">
-      🔥 Thodi motivation
-    </button>
+        <button class="mood-option" data-recovery="motivation">
+          🔥 Thodi motivation
+        </button>
 
-    <button class="mood-option" data-recovery="distraction">
-      😂 Thoda distraction
-    </button>
+        <button class="mood-option" data-recovery="distraction">
+          😂 Thoda distraction
+        </button>
 
-  </div>
-`;
+      </div>
+    `;
 
     recoveryButton.style.display = "none";
+
     const recoveryOptions =
-  document.querySelectorAll(".recovery-options .mood-option");
+      document.querySelectorAll(
+        ".recovery-options .mood-option"
+      );
 
-recoveryOptions.forEach((option) => {
-  option.addEventListener("click", () => {
+    recoveryOptions.forEach((option) => {
 
-    recoveryOptions.forEach((item) => {
-      item.classList.remove("selected");
+      option.addEventListener("click", () => {
+
+        recoveryOptions.forEach((item) => {
+          item.classList.remove("selected");
+        });
+
+        option.classList.add("selected");
+
+        setRecoveryChoice(option.dataset.recovery);
+
+        recoveryQuestion
+          .querySelector(".recovery-confirmation")
+          ?.remove();
+
+        recoveryQuestion
+          .querySelector("#recovery-continue")
+          ?.remove();
+
+        recoveryQuestion.insertAdjacentHTML(
+          "beforeend",
+          `
+            <p class="subtitle recovery-confirmation">
+              Choice noted. Department aapke case par kaam shuru kar raha hai. 😌
+            </p>
+
+            <button
+              class="primary-btn"
+              id="recovery-continue"
+            >
+              Aage Badhein 👉
+            </button>
+          `
+        );
+
+        const recoveryContinue =
+          document.querySelector("#recovery-continue");
+
+        recoveryContinue.addEventListener("click", () => {
+          const choice = getRecoveryChoice();
+
+          app.innerHTML = RecoveryResult(choice);
+const finishButton = document.querySelector("#finish-recovery");
+ 
+          finishButton.addEventListener("click", () => {
+            app.innerHTML = CaseClosed();
+            const newCaseButton = document.querySelector("#new-case");
+            newCaseButton.addEventListener("click", () => {
+              resetState();
+              showLanding();
+            });
+          });
+        });
+
+      });
+
     });
-
-    option.classList.add("selected");
-
-setRecoveryChoice(option.dataset.recovery);
-
-const oldConfirmation =
-  document.querySelector(".recovery-confirmation");
-
-if (oldConfirmation) {
-  oldConfirmation.remove();
-}
-
-recoveryQuestion.insertAdjacentHTML(
-  "beforeend",
-  `
-    <p class="subtitle recovery-confirmation">
-      Choice noted. Department aapke case par kaam shuru kar raha hai. 😌
-    </p>
- <button class="primary-btn" id="recovery-continue">
-  Aage Badhein 👉
-</button> `
-);
-const recoveryContinue =
-  document.querySelector("#recovery-continue");
-
-recoveryContinue.addEventListener("click", () => {
-  console.log("Recovery chapter completed");
-});
-  });
-});
 
   });
 }

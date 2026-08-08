@@ -18,3 +18,10 @@ export function setRecoveryChoice(choice) {
 export function getRecoveryChoice() {
   return state.recoveryChoice;
 }
+export function resetState() {
+
+  state.mood = null;
+
+  state.recoveryChoice = null;
+
+}

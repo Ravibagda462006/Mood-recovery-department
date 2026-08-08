@@ -15,3 +15,7 @@ export function typeText(element, text, speed = 35) {
     }, speed);
   });
 }
+export function resetState() {
+  state.mood = null;
+  state.recoveryChoice = null;
+}
