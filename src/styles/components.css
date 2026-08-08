@@ -29,6 +29,72 @@
 
     transition:all .3s ease;
 }
+/* ==========================
+   Department Seal
+========================== */
+
+.department-seal {
+  width: 92px;
+  height: 92px;
+
+  margin: 0 auto 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+
+  background: var(--color-bg);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08);
+
+  position: relative;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.department-seal::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 6px;
+
+  border: 1px dashed var(--color-primary);
+  border-radius: 50%;
+}
+
+.department-seal:hover {
+  transform: rotate(-3deg) scale(1.05);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+.seal-icon {
+  font-size: 22px;
+  line-height: 1;
+  z-index: 1;
+}
+
+.seal-text {
+  margin-top: 5px;
+
+  font-family: var(--font-heading);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  z-index: 1;
+}
 
 .primary-btn:hover{
 
@@ -44,4 +110,102 @@
 
     transform:scale(.97);
 
+}
+/* ==========================
+   Mood Options
+========================== */
+
+.mood-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  width: min(420px, 100%);
+
+  margin: 32px auto 0;
+}
+
+.mood-option {
+  width: 100%;
+
+  padding: 14px 18px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+  color: var(--color-primary);
+
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.mood-option:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--color-primary);
+
+  box-shadow: var(--shadow-sm);
+}
+
+#diagnosis-submit {
+  margin-top: 24px;
+}
+
+#diagnosis-submit:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+/* ==========================
+   Selected Mood
+========================== */
+
+.mood-option.selected {
+  background: var(--color-primary);
+  color: white;
+
+  border-color: var(--color-primary);
+
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-sm);
+}
+/* ==========================
+   Diagnosis Report
+========================== */
+
+.diagnosis-result {
+  width: min(700px, 100%);
+  margin: 0 auto;
+  padding: 48px;
+
+  text-align: center;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-lg);
+
+  animation: landingEnter .7s ease-out both;
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+
+  font-size: var(--fs-sm);
+  font-weight: 700;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: var(--color-accent);
 }

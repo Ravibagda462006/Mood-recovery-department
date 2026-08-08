@@ -1,0 +1,61 @@
+/* ==========================
+   Landing Entry Animation
+========================== */
+
+@keyframes landingEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing {
+  animation: landingEnter .8s ease-out both;
+}
+
+
+/* ==========================
+   Seal Entry
+========================== */
+
+@keyframes sealEnter {
+  from {
+    opacity: 0;
+    transform: scale(.7) rotate(-12deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.department-seal {
+  animation: sealEnter .7s ease-out .15s both;
+}
+
+
+/* ==========================
+   Button Entry
+========================== */
+
+@keyframes buttonEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.primary-btn {
+  animation: buttonEnter .6s ease-out .35s both;
+}

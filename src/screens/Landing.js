@@ -1,6 +1,12 @@
 export function Landing() {
   return `
+
     <main class="landing">
+
+    <div class="department-seal" aria-label="Mood Recovery Department seal">
+  <span class="seal-icon">✦</span>
+  <span class="seal-text">MRD™</span>
+</div>
 
       <h1 class="title">
         Mood Recovery Department™
